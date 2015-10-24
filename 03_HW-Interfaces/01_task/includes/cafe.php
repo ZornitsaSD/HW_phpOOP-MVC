@@ -1,13 +1,13 @@
 <?php
 class Cafe {
-	public $name;
-	public $address;
-	public $capacity;
-	public $music;
-	public $bartender;
-	public $number_bartenders;
-	public $client;
-	public $number_clients;
+	private $cname;
+	private $address;
+	private $capacity;
+	private $music;
+	private $bartender;
+	private $number_bartenders;
+	private $client;
+	private $number_clients;
 	
 
 	public function __construct($cafe_name, $cafe_address, $cafe_capacity, $cafe_artist_name, 
@@ -18,7 +18,7 @@ class Cafe {
 		$client_name, $client_sex, 
 		$client_artist_name, $client_music_genre, $client_song_name, $client_bill, $cafe_number_clients) 
 	{
-		$this->name = $cafe_name;
+		$this->cname = $cafe_name;
 		$this->address = $cafe_address;
 		$this->capacity = $cafe_capacity;
 		$this->music = new Music( $cafe_artist_name, $cafe_music_genre, $cafe_song_name);
@@ -54,17 +54,17 @@ class Cafe {
 			|| $time2=='Saturday')) {
 			echo "The bar is opened <br>";
 	} elseif (($time1 >= '00:00' && $time1 <= '06:00' ) && ($time2=='Thursday' || $time2== 'Wednesday' 
-			|| $time2== 'Tuesday' || $time2== 'Friday' 
-			|| $time2=='Saturday')) {
-			echo "The bar is opened <br>";
-	
+		|| $time2== 'Tuesday' || $time2== 'Friday' 
+		|| $time2=='Saturday')) {
+		echo "The bar is opened <br>";
+
 	} else {
 		echo "The bar is closed<br>";
 	}
 } //end of close
 
 public function cafeInfo() {
-	echo "<h2>Name - " . $this->name . '</h2>';
+	echo "<h2>Name - " . $this->cname . '</h2>';
 	echo "Location - " . $this->address . '<br>';
 	echo "Capacity - " . $this->name . '<br>';
 	echo "<h3>Music played - </h3>" ;
@@ -84,6 +84,26 @@ public function cafeInfo() {
 	}
 
 	} //end of cafeInfo
+
+	public function __set($name, $value){
+
+		if (property_exists($this, $name)) {
+			$this->$name = $value;
+		}else{
+			echo "property $name does NOT exist <br/>";
+		}
+	}//end 
+
+
+	public function __get($name)
+	{
+	
+		if (property_exists($this, $name)) {
+			return $this->$name;
+		}else{
+			echo "property $name does NOT exist <br/>";
+		} //emd
+	}
 
 
 
