@@ -33,19 +33,4 @@ class WorkingMan {
 }
 
 
-
-/*class Programmer {
-	private $name;
-	private $salary;
-	private $qualification;
-}
-
-class Lawyer {
-	private $name;
-	private $fees;
-	private $number_of_cases_lost;
-	private $number_of_cases_won;
-}
-
-*/
 ?>

@@ -1,5 +1,5 @@
 <?php 
-include_once('header.php'); 
+include_once('includes\header.php'); 
 
 
 echo "<h2>Object 1 Class WorkingMan</h2>";
@@ -38,5 +38,7 @@ $programmer->work(20, 2, 1);
 echo "<h3>Info again - </h3>";
 
 $programmer->programmerInfo();
+
+include_once('includes\footer.php');
 
 
